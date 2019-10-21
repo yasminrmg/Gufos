@@ -33,8 +33,9 @@ namespace backend.Controllers{
         public async Task<ActionResult<Evento>> Get(int id)
         {
             // FindAsync = procura algo especifico no banco
-            //var evento = await _contexto.Evento.FindAsync(id);
-            var evento = await _contexto.Evento.Include("Categoria").Include("Localizacao").FirstOrDefaultAsync(e => e.IdEventos == id);
+            var evento = await _contexto.Evento.FindAsync(id);
+            //var evento = await _contexto.Evento.Include("categoria").Include("localizacao").FirstOrDefaultAsync(e => e.IdEventos == id);
+            
             //tbm poderia ser utilizado lambda 
             //var evento = await _contexto.Evento.Include("Categoria").Include("Localizacao").FirstOrDefaultAsync(e => e.IdEventos == id);
 
